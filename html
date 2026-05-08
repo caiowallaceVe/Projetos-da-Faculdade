@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grão & Aroma | Menu Completo</title>
+    <link rel="stylesheet" href="cafe.css">
+</head>
+<body>
+
+<header>
+    <img src="graoearoma.png" alt="Logo Grão e Aroma">
+    <h1>Grão & Aroma</h1>
+    <p>Escolha seus itens e finalize pelo WhatsApp</p>
+</header>
+
+<nav class="tabs">
+    <button onclick="abrirAba('menu')">Cardápio</button>
+    <button onclick="abrirAba('quem-somos')">Quem Somos</button>
+    <button onclick="abrirAba('carrinho')">Meu Carrinho (<span id="contagem">0</span>)</button>
+</nav>
+
+<div id="quem-somos" class="tab-content">
+    <div class="about-section">
+        <img src="quemsomos.jpg" alt="Grãos de Café Especiais" style="border-radius: 15px; margin-bottom: 20px;">
+        <h2>Nossa Essência</h2>
+        <p>Na <strong>Grão & Aroma</strong>, acreditamos que o café é muito mais que uma bebida; é um ritual de conexão e pausa.</p>
+        <p>Valorizamos o processo artesanal, desde a torra controlada até a extração perfeita.</p>
+        <p>Nosso ambiente mega instagramável faz com que seu conforto vire mídia social!</p>
+        
+        <h3>Nossa Arte</h3>
+        <div class="gallery">
+            <img src="instagramavel.jpg" alt="Ambiente">
+            <img src="foto1.jpg" alt="Café 1">
+            <img src="foto2.jpg" alt="Café 2">
+            <img src="foto3.jpg" alt="Café 3">
+        </div>
+    </div>
+</div>
+
+<div id="menu" class="tab-content active-tab">
+    <div class="card">
+        <img src="https://villacafe.com.br/blog/wp-content/uploads/2016/08/afinal-por-que-o-cafe-gourmet-e-mais-caro-entenda-760x460.jpeg">
+        <div class="card-info">
+            <h3>Cafés Especiais</h3>
+            <select id="sel-cafe">
+                <option value="Espresso - R$8">Espresso - R$ 8,00</option>
+                <option value="Cappuccino - R$14">Cappuccino - R$ 14,00</option>
+                <option value="Latte Baunilha - R$16">Latte Baunilha - R$ 16,00</option>
+                <option value="Mocha - R$18">Mocha Belga - R$ 18,00</option>
+            </select>
+            <button class="buy-btn" onclick="adicionarAoCarrinho('sel-cafe')">Adicionar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400">
+        <div class="card-info">
+            <h3>Donuts & Doces</h3>
+            <select id="sel-doce">
+                <option value="Donut Morango - R$12">Donut Morango - R$ 12,00</option>
+                <option value="Donut Chocolate - R$12">Donut Chocolate - R$ 12,00</option>
+                <option value="Fatia Torta Holandesa - R$15">Torta Holandesa - R$ 15,00</option>
+                <option value="Cookies - R$8">Cookies Chips - R$ 8,00</option>
+            </select>
+            <button class="buy-btn" onclick="adicionarAoCarrinho('sel-doce')">Adicionar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400">
+        <div class="card-info">
+            <h3>Pães & Salgados</h3>
+            <select id="sel-salgado">
+                <option value="Pão de Queijo - R$10">Pão de Queijo - R$ 10,00</option>
+                <option value="Croissant P&Q - R$16">Croissant P&Q - R$ 16,00</option>
+                <option value="Toast Abacate - R$22">Toast Abacate - R$ 22,00</option>
+                <option value="Quiche Loraine - R$14">Quiche Loraine - R$ 14,00</option>
+            </select>
+            <button class="buy-btn" onclick="adicionarAoCarrinho('sel-salgado')">Adicionar</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400">
+        <div class="card-info">
+            <h3>Bebidas Geladas</h3>
+            <select id="sel-gelado">
+                <option value="Iced Latte - R$15">Iced Latte - R$ 15,00</option>
+                <option value="Frappuccino - R$20">Frappuccino - R$ 20,00</option>
+                <option value="Soda Italiana - R$12">Soda Italiana - R$ 12,00</option>
+                <option value="Cold Brew - R$14">Cold Brew - R$ 14,00</option>
+            </select>
+            <button class="buy-btn" onclick="adicionarAoCarrinho('sel-gelado')">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div id="carrinho" class="tab-content">
+    <div id="carrinho-container">
+        <h2>Meu Pedido</h2>
+        <div id="lista-carrinho">
+            <p style="color: #999;">O carrinho está vazio...</p>
+        </div>
+        <hr>
+        <p><strong>Total: R$ <span id="valor-total">0</span>,00</strong></p>
+        
+        <button onclick="enviarWhatsapp()" class="wpp-order-btn">
+            🚀 Enviar Pedido para o WhatsApp
+        </button>
+        
+        <button onclick="limparCarrinho()" style="background:none; border:none; color:red; cursor:pointer; margin-top:15px; width:100%">Limpar tudo</button>
+    </div>
+</div>
+
+<footer>
+    <p>Dúvidas? <a href="mailto:caiowallace308@gmail.com">caiowallace308@gmail.com</a></p>
+    <p>Telefone: (19) 99499-5101</p>
+</footer>
+
+<script src="cafe.js"></script>
+</body>
+</html>
